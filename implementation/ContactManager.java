@@ -26,7 +26,7 @@ public class ContactManager {
 	 * and display a message
 	 */
 	public static void read() {
-		//more code needed for reading file.
+		//more code needed for reading file. Test.
 	}
 	
 	/**
