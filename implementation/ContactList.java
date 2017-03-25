@@ -389,7 +389,7 @@ public class ContactList {
 	}
 	
 	/**
-	 * validates if user inputs email in the correct syntax
+	 * validates email syntax input
 	 * @param emailInput : email input by user
 	 * @param emailRegex : the correct email syntax
 	 * @return true only if email input matches the correct syntax
@@ -400,8 +400,7 @@ public class ContactList {
 	}
 
 	/**
-	 * validates if user inputs phone
-	 * in the correct syntax: XXX-XXX-XXXX
+	 * validates phone syntax input: XXX-XXX-XXXX
 	 * @param phoneInput : phone input by user
 	 * @return true only if email is in correct syntax
 	 */
