@@ -228,14 +228,14 @@ public class Table {
 		}
 		String[] house = convertToArray(rawAddress.getHouse(), ADDRESS_FIELD);
 
-		address = new String[house.length + 2];
+		address = new String[house.length + 3];
 		for (int index = 0; index < house.length; index++) {
 			address[index] = house[index];
 		}
-		address[house.length] = rawAddress.getCity() 
-								+ ", " + rawAddress.getState();
-		address[house.length + 1] = rawAddress.getZip() 
-								+ " " + rawAddress.getCountry();
+		address[house.length] = rawAddress.getCity();
+		address[house.length + 1] = 
+						rawAddress.getState() + " " + rawAddress.getZip();
+		address[house.length + 2] = rawAddress.getCountry();
 
 		return address;
 	}
