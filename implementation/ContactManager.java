@@ -26,7 +26,7 @@ public class ContactManager {
 	 * and display a message
 	 */
 	public static void read() {
-		//more code needed for reading file.
+		//more code needed for reading file. Test.
 	}
 	
 	/**
@@ -111,6 +111,9 @@ public class ContactManager {
 	public static void searchContacts() {
 		//Use Case 3
 		//code needed for searching
+		Scanner console = new Scanner (System.in);
+		String lastName = console.nextLine();
+		contactList.searchContacts(lastName);
 	}
 	
 	/**
