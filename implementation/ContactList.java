@@ -63,15 +63,32 @@ public class ContactList {
 		readContactInfo();	
 	}
 	
-	/**
+	/** HG
+	 * @param last name of a person being searched
 	 * searches and prints the information from
 	 * the person(s) with the matched last name
-	 * @param last name of a person being searched
 	 */
 	public void search(String lastName) {
 		//If no one is found, display a message
 		//If more than one is found, print all
 		//code needed for Use Case 3
+		int contactCounter = 0;
+		if (contactList.length == 0) {
+			System.out.println("*** Contact List is empty, nothing to search for ***" + "\n");
+		} else {
+			Scanner console = new Scanner(System.in);
+			System.out.println("Please enter a Contact's last name to search for: ");
+			String getLastName = console.nextLine();
+			for (Person person : contactList) {
+			if (lastName.equals(person.getLastName())) {
+				System.out.println(person);
+				contactCounter++;
+				}
+			}
+			if (contactCounter == 0) {
+				System.out.println("***No contacts found***");
+			}
+		}
 	}
 	
 	/**
@@ -369,34 +386,6 @@ public class ContactList {
 			return true;
 		}
 		
-	}
-
-	/** HG
-	 * @param last name of a person being searched
-	 * searches and prints the information from
-	 * the person(s) with the matched last name
-	 */
-	public void search(String lastName) {
-		//If no one is found, display a message
-		//If more than one is found, print all
-		//code needed for Use Case 3
-		int contactCounter = 0;
-		if (contactList.length == 0) {
-			System.out.println("*** Contact List is empty, nothing to search for ***" + "\n");
-		} else {
-			Scanner console = new Scanner(System.in);
-			System.out.println("Please enter a Contact's last name to search for: ");
-			String getLastName = console.nextLine();
-			for (Person person : contactList) {
-			if (lastName.equals(person.getLastName())) {
-				System.out.println(person);
-				contactCounter++;
-				}
-			}
-			if (contactCounter == 0) {
-				System.out.println("***No contacts found***");
-			}
-		}
 	}
 	
 	/**
