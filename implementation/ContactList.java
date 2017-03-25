@@ -370,10 +370,7 @@ public class ContactList {
 		}
 		
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/** HG
 	 * @param last name of a person being searched
 	 * searches and prints the information from
@@ -402,8 +399,6 @@ public class ContactList {
 		}
 	}
 	
-	
->>>>>>> ee1b459307925b00403b971be86c382d8de4a5e6
 	/**
 	 * validates if user inputs email in the correct syntax
 	 * @param emailInput : email input by user
