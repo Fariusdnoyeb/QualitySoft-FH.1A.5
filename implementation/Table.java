@@ -53,7 +53,7 @@ public class Table {
 		int emptySpace = LINE_LENGTH - topMessage.length();
 		if (emptySpace % 2 == 0) {			//even
 			left = right = emptySpace / 2; 
-		} else {													//odd
+		} else {					//odd
 			left = emptySpace / 2;
 			right = left + 1;
 		}
@@ -229,6 +229,7 @@ public class Table {
 		String[] house = convertToArray(rawAddress.getHouse(), ADDRESS_FIELD);
 
 		address = new String[house.length + 3];
+
 		for (int index = 0; index < house.length; index++) {
 			address[index] = house[index];
 		}
