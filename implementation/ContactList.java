@@ -3,16 +3,17 @@
  * Each object of this class stores a
  * contact list
  * 
- * @version  4.2 Mar 24 2017
- * @author Quang Phan
+ * @version  final Mar 29 2017
+ * @author TEAM 5
  */
 
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.io.Serializable;
 
-public class ContactList {
+public class ContactList implements Serializable {
 //data members
 	private Person[] contactList; //list of all contacts
 	private int contactCounter; //number of contacts in the list
@@ -32,14 +33,14 @@ public class ContactList {
 //--------------------------
 // Public Instance Methods
 //--------------------------
-	/**
+	/**HG
 	 * @return "counter": the number of contacts existing
 	 */
 	public int getContactCounter() {
 		return contactCounter;
 	}
 	
-	/**
+	/**JM
 	 * 
 	 * @param index of the contact of interest
 	 * @return the contact as a "Person" type
@@ -48,7 +49,7 @@ public class ContactList {
 		return contactList[index];
 	}
 	
-	/**
+	/**JM
 	 * adds a new "Person" object into "contactList"
 	 * and add 1 to "counter"
 	 */
@@ -68,30 +69,27 @@ public class ContactList {
 	 * searches and prints the information from
 	 * the person(s) with the matched last name
 	 */
-	public void search(String lastName) {
-		//If no one is found, display a message
-		//If more than one is found, print all
-		//code needed for Use Case 3
-		int contactCounter = 0;
-		if (contactList.length == 0) {
+	public void searchContacts() {
+		int numberOfContactsFound = 0;
+		if (contactCounter == 0) {
 			System.out.println("*** Contact List is empty, nothing to search for ***" + "\n");
 		} else {
 			Scanner console = new Scanner(System.in);
 			System.out.println("Please enter a Contact's last name to search for: ");
-			String getLastName = console.nextLine();
-			for (Person person : contactList) {
-			if (lastName.equals(person.getLastName())) {
-				System.out.println(person);
-				contactCounter++;
+			String lastName = console.nextLine();
+			for (int counter = 0; counter < contactCounter; counter++) {
+			if (lastName.equals(contactList[counter].getLastName())) {
+				System.out.println(contactList[counter].toString());
+				numberOfContactsFound++;
 				}
 			}
-			if (contactCounter == 0) {
+			if (numberOfContactsFound == 0) {
 				System.out.println("***No contacts found***");
 			}
 		}
 	}
 	
-	/**
+	/**JM
 	 * sorts the contact list in ascending alphabetical order
 	 * with respects to last name
 	 * 2 contacts with the same last name will be ordered by
@@ -101,7 +99,7 @@ public class ContactList {
 		Arrays.sort(contactList, 0, contactCounter);
 	}
 
-	/**
+	/**JM
 	 * @return a String containing the number of contacts
 	 * in the list and all the contacts' information.
 	 */
@@ -120,7 +118,7 @@ public class ContactList {
 //---------------------------
 // Private Instance Methods
 //---------------------------
-	/**
+	/**JM
 	 * reads in new contact's information from user
 	 * terminates if the user input 'c'/'C'
 	 */
@@ -147,7 +145,7 @@ public class ContactList {
 		}
 	}
 	
-	/**
+	/**JM
 	 * reads in last name for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be add
@@ -169,7 +167,7 @@ public class ContactList {
 		}
 	}
 	
-	/**
+	/**JM
 	 * reads in first name for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be add
@@ -191,7 +189,7 @@ public class ContactList {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in full address for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -217,7 +215,7 @@ public class ContactList {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in house/apartment/street for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -236,7 +234,7 @@ public class ContactList {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in city for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -255,7 +253,7 @@ public class ContactList {
 		}
 	}
 	
-	/**
+	/**HG
 	 * reads in state for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -274,7 +272,7 @@ public class ContactList {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in zip code for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -293,7 +291,7 @@ public class ContactList {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in country for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -312,7 +310,7 @@ public class ContactList {
 		}
 	}
 	
-	/**
+	/**QP
 	 * reads in email for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -341,7 +339,7 @@ public class ContactList {
 		return true;
 	}
 
-	/**
+	/**QP
 	 * reads in phone number for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -350,12 +348,13 @@ public class ContactList {
 	 * 				or user input 'c'/'C'
 	 */
 	private boolean readPhone(Scanner console, Person tempPerson) {
+		final Pattern VALID_PHONE_REGEX = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{4}");
 		boolean isValidPhone;
 		String stringInput;
 		do {
 			System.out.print("Phone number(XXX-XXX-XXXX): ");
 			stringInput = console.nextLine().trim();
-			isValidPhone = validatePhone(stringInput);
+			isValidPhone = validatePhone(stringInput, VALID_PHONE_REGEX);
 			if (isCancelled(stringInput)) { //terminates if user enters "c"
 				System.out.println("No contact added.");
 				return false;
@@ -368,7 +367,7 @@ public class ContactList {
 		return true;
 	}
 
-	/**
+	/**QP
 	 * reads in notes for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -388,32 +387,37 @@ public class ContactList {
 		
 	}
 	
-	/**
+	/**QP
 	 * validates email syntax input
 	 * @param emailInput : email input by user
 	 * @param emailRegex : the correct email syntax
-	 * @return true only if email input matches the correct syntax
+	 * @return true only if email input matches the correct syntax or blank
 	 */
 	private boolean validateEmail (String emailInput, Pattern emailRegex) {
-		Matcher matcher = emailRegex.matcher(emailInput);
-		return matcher.matches();
-	}
-
-	/**
-	 * validates phone syntax input: XXX-XXX-XXXX
-	 * @param phoneInput : phone input by user
-	 * @return true only if email is in correct syntax
-	 */
-	private boolean validatePhone(String phoneInput) {
-		final String PHONE_PATTERN = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
-		if (phoneInput.matches(PHONE_PATTERN)) {
+		if (emailInput.isEmpty()) {
 			return true;
 		} else {
-			return false;
+			Matcher matcher = emailRegex.matcher(emailInput);
+			return matcher.matches();
+		}
+
+	}
+
+	/**QP
+	 * validates phone syntax input: XXX-XXX-XXXX
+	 * @param phoneInput : phone input by user
+	 * @return true only if email is in correct syntax or blank
+	 */
+	private boolean validatePhone(String phoneInput, Pattern phoneRegex) {
+		if (phoneInput.isEmpty()) {
+			return true;
+		} else {
+			Matcher matcher = phoneRegex.matcher(phoneInput);
+			return matcher.matches();
 		}
 	}
 	
-	/**
+	/**QP
 	 * checks if user wants to cancel the contact-adding process
 	 * @param stringInput : a String input by user
 	 * @return true if user type in 'C'/'c'
@@ -427,4 +431,3 @@ public class ContactList {
 	}
 
 }
-
