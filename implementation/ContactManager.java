@@ -33,7 +33,7 @@ public class ContactManager implements Serializable {
 	 */
 	public static void read() {
 		try  {
-		    	  ObjectInputStream in = new ObjectInputStream(new FileInputStream("myarray.ser"));
+		    	  ObjectInputStream in = new ObjectInputStream(new FileInputStream("ContactList.ser"));
 		    	  contactBook = (ContactList)in.readObject();
 		    	  in.close();    
 		      } catch(IOException ioe)  {
