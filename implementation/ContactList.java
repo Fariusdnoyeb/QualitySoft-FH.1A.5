@@ -73,20 +73,20 @@ public class ContactList implements Serializable {
 		//If no one is found, display a message
 		//If more than one is found, print all
 		//code needed for Use Case 3
-		int contactCounter = 0;
-		if (contactList.length == 0) {
+		int numberOfContactsFound = 0;
+		if (contactCounter == 0) {
 			System.out.println("*** Contact List is empty, nothing to search for ***" + "\n");
 		} else {
 			Scanner console = new Scanner(System.in);
 			System.out.println("Please enter a Contact's last name to search for: ");
-			String getLastName = console.nextLine();
-			for (Person person : contactList) {
-			if (lastName.equals(person.getLastName())) {
-				System.out.println(person);
-				contactCounter++;
+			String lastName = console.nextLine();
+			for (int counter = 0; counter < contactCounter; counter++) {
+			if (lastName.equals(contactList[counter].getLastName())) {
+				System.out.println(contactList[counter].toString());
+				numberOfContactsFound++;
 				}
 			}
-			if (contactCounter == 0) {
+			if (numberOfContactsFound == 0) {
 				System.out.println("***No contacts found***");
 			}
 		}
