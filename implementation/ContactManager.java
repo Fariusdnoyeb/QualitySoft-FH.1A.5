@@ -76,6 +76,7 @@ public class ContactManager implements Serializable {
 					break;	
 				case "3":
 					searchContacts();
+					break;
 				case "4":
 					save();
 					restart = false; //terminates program
