@@ -34,7 +34,7 @@ public class ContactManager implements Serializable {
 	public static void read() {
 		try  {
 		    	  ObjectInputStream in = new ObjectInputStream(new FileInputStream("ContactList.ser"));
-		    	  contactBook = (ContactList)in.readObject();
+		    	  contactList = (ContactList)in.readObject();
 		    	  in.close();    
 		      } catch(IOException ioe)  {
 		      } catch (ClassNotFoundException cnfe)  {
@@ -137,7 +137,7 @@ public class ContactManager implements Serializable {
 			ObjectOutputStream out = new ObjectOutputStream(
 				    new FileOutputStream("ContactList.ser")
 				);
-				out.writeObject(contactBook);
+				out.writeObject(contactList);
 				out.flush();
 				out.close();
 		} catch (IOException ioe)  {
