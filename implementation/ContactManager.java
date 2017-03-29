@@ -1,7 +1,7 @@
 /**
  * manages the contact list
- * @version 3 Mar 21 2017
- * @author Quang Phan
+ * @version  final Mar 29 2017
+ * @author Jason Martinez
  */
 
 import java.io.FileInputStream;
