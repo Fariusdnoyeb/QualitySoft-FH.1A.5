@@ -1,4 +1,3 @@
-
 /**
  * Definition for Class StreetAddres.
  * Each object of this class 
@@ -7,7 +6,9 @@
  * @version 3 Mar 21 2017
  * @author Quang Phan
  */
-public class StreetAddress {
+import java.io.Serializable;
+
+public class StreetAddress implements Serializable{
 //data member:
 	private String house;
 	private String city;
