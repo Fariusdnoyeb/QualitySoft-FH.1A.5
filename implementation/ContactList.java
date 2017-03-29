@@ -69,10 +69,7 @@ public class ContactList implements Serializable {
 	 * searches and prints the information from
 	 * the person(s) with the matched last name
 	 */
-	public void search(String lastName) {
-		//If no one is found, display a message
-		//If more than one is found, print all
-		//code needed for Use Case 3
+	public void searchContacts() {
 		int numberOfContactsFound = 0;
 		if (contactCounter == 0) {
 			System.out.println("*** Contact List is empty, nothing to search for ***" + "\n");
