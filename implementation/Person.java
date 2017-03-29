@@ -6,8 +6,9 @@
  * @version 3 Mar 21 2017
  * @author Quang Phan
  */
+import java.io.Serializable;
 
-public class Person implements Comparable<Person> {
+public class Person implements Comparable<Person>, Serializable {
 //Data Members
 	private String firstName;
 	private String lastName;
