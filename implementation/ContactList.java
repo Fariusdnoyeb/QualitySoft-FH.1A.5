@@ -11,8 +11,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.io.Serializable;
 
-public class ContactList {
+public class ContactList implements Serializable {
 //data members
 	private Person[] contactList; //list of all contacts
 	private int contactCounter; //number of contacts in the list
