@@ -32,16 +32,14 @@ public class ContactManager implements Serializable {
 	 * and display a message
 	 */
 	public static void read() {
-		public static void read() {
-			try  {
+		try  {
 		    	  ObjectInputStream in = new ObjectInputStream(new FileInputStream("myarray.ser"));
 		    	  contactBook = (ContactList)in.readObject();
 		    	  in.close();    
 		      } catch(IOException ioe)  {
 		      } catch (ClassNotFoundException cnfe)  {
 		         System.out.println ("Error in casting to Array: " + cnfe);
-		      }    
-		}
+		      } 
 	}
 	
 	/**
