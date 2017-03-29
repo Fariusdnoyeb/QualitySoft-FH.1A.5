@@ -122,11 +122,7 @@ public class ContactManager implements Serializable {
 	 * searches contacts in "contactList" by lastName
 	 */
 	public static void searchContacts() {
-		//Use Case 3
-		//code needed for searching
-		Scanner console = new Scanner (System.in);
-		String lastName = console.nextLine();
-		contactList.searchContacts(lastName);
+		contactList.searchContacts();
 	}
 	
 	/**JM
