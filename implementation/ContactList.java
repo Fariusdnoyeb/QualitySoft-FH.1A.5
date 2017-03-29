@@ -348,12 +348,13 @@ public class ContactList implements Serializable {
 	 * 				or user input 'c'/'C'
 	 */
 	private boolean readPhone(Scanner console, Person tempPerson) {
+		final Pattern VALID_PHONE_REGEX = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{4}");
 		boolean isValidPhone;
 		String stringInput;
 		do {
 			System.out.print("Phone number(XXX-XXX-XXXX): ");
 			stringInput = console.nextLine().trim();
-			isValidPhone = validatePhone(stringInput);
+			isValidPhone = validatePhone(stringInput, VALID_PHONE_REGEX);
 			if (isCancelled(stringInput)) { //terminates if user enters "c"
 				System.out.println("No contact added.");
 				return false;
@@ -390,11 +391,16 @@ public class ContactList implements Serializable {
 	 * validates email syntax input
 	 * @param emailInput : email input by user
 	 * @param emailRegex : the correct email syntax
-	 * @return true only if email input matches the correct syntax
+	 * @return true only if email input matches the correct syntax or blank
 	 */
 	private boolean validateEmail (String emailInput, Pattern emailRegex) {
-		Matcher matcher = emailRegex.matcher(emailInput);
-		return matcher.matches();
+		if (emailInput.isEmpty()) {
+			return true;
+		} else {
+			Matcher matcher = emailRegex.matcher(emailInput);
+			return matcher.matches();
+		}
+
 	}
 
 	/**
@@ -402,12 +408,12 @@ public class ContactList implements Serializable {
 	 * @param phoneInput : phone input by user
 	 * @return true only if email is in correct syntax
 	 */
-	private boolean validatePhone(String phoneInput) {
-		final String PHONE_PATTERN = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
-		if (phoneInput.matches(PHONE_PATTERN)) {
+	private boolean validatePhone(String phoneInput, Pattern phoneRegex) {
+		if (phoneInput.isEmpty()) {
 			return true;
 		} else {
-			return false;
+			Matcher matcher = phoneRegex.matcher(phoneInput);
+			return matcher.matches();
 		}
 	}
 	
