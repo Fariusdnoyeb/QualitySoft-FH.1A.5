@@ -3,8 +3,8 @@
  * Each object of this class stores a
  * contact list
  * 
- * @version  4.2 Mar 24 2017
- * @author Quang Phan
+ * @version  final Mar 29 2017
+ * @author TEAM 5
  */
 
 import java.util.Arrays;
@@ -33,14 +33,14 @@ public class ContactList implements Serializable {
 //--------------------------
 // Public Instance Methods
 //--------------------------
-	/**
+	/**HG
 	 * @return "counter": the number of contacts existing
 	 */
 	public int getContactCounter() {
 		return contactCounter;
 	}
 	
-	/**
+	/**JM
 	 * 
 	 * @param index of the contact of interest
 	 * @return the contact as a "Person" type
@@ -49,7 +49,7 @@ public class ContactList implements Serializable {
 		return contactList[index];
 	}
 	
-	/**
+	/**JM
 	 * adds a new "Person" object into "contactList"
 	 * and add 1 to "counter"
 	 */
@@ -89,7 +89,7 @@ public class ContactList implements Serializable {
 		}
 	}
 	
-	/**
+	/**JM
 	 * sorts the contact list in ascending alphabetical order
 	 * with respects to last name
 	 * 2 contacts with the same last name will be ordered by
@@ -99,7 +99,7 @@ public class ContactList implements Serializable {
 		Arrays.sort(contactList, 0, contactCounter);
 	}
 
-	/**
+	/**JM
 	 * @return a String containing the number of contacts
 	 * in the list and all the contacts' information.
 	 */
@@ -118,7 +118,7 @@ public class ContactList implements Serializable {
 //---------------------------
 // Private Instance Methods
 //---------------------------
-	/**
+	/**JM
 	 * reads in new contact's information from user
 	 * terminates if the user input 'c'/'C'
 	 */
@@ -145,7 +145,7 @@ public class ContactList implements Serializable {
 		}
 	}
 	
-	/**
+	/**JM
 	 * reads in last name for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be add
@@ -167,7 +167,7 @@ public class ContactList implements Serializable {
 		}
 	}
 	
-	/**
+	/**JM
 	 * reads in first name for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be add
@@ -189,7 +189,7 @@ public class ContactList implements Serializable {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in full address for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -215,7 +215,7 @@ public class ContactList implements Serializable {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in house/apartment/street for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -234,7 +234,7 @@ public class ContactList implements Serializable {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in city for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -253,7 +253,7 @@ public class ContactList implements Serializable {
 		}
 	}
 	
-	/**
+	/**HG
 	 * reads in state for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -272,7 +272,7 @@ public class ContactList implements Serializable {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in zip code for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -291,7 +291,7 @@ public class ContactList implements Serializable {
 		}
 	}
 
-	/**
+	/**HG
 	 * reads in country for new contact's address
 	 * @param console : Scanner for user input
 	 * @param tempAddress : address to be added
@@ -310,7 +310,7 @@ public class ContactList implements Serializable {
 		}
 	}
 	
-	/**
+	/**QP
 	 * reads in email for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -339,7 +339,7 @@ public class ContactList implements Serializable {
 		return true;
 	}
 
-	/**
+	/**QP
 	 * reads in phone number for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -367,7 +367,7 @@ public class ContactList implements Serializable {
 		return true;
 	}
 
-	/**
+	/**QP
 	 * reads in notes for new contact
 	 * @param console : Scanner for user input
 	 * @param tempPerson : new contact to be added
@@ -387,7 +387,7 @@ public class ContactList implements Serializable {
 		
 	}
 	
-	/**
+	/**QP
 	 * validates email syntax input
 	 * @param emailInput : email input by user
 	 * @param emailRegex : the correct email syntax
@@ -403,10 +403,10 @@ public class ContactList implements Serializable {
 
 	}
 
-	/**
+	/**QP
 	 * validates phone syntax input: XXX-XXX-XXXX
 	 * @param phoneInput : phone input by user
-	 * @return true only if email is in correct syntax
+	 * @return true only if email is in correct syntax or blank
 	 */
 	private boolean validatePhone(String phoneInput, Pattern phoneRegex) {
 		if (phoneInput.isEmpty()) {
@@ -417,7 +417,7 @@ public class ContactList implements Serializable {
 		}
 	}
 	
-	/**
+	/**QP
 	 * checks if user wants to cancel the contact-adding process
 	 * @param stringInput : a String input by user
 	 * @return true if user type in 'C'/'c'
