@@ -1,12 +1,18 @@
 /**
  * manages the contact list
- * @version 3 Mar 21 2017
- * @author Quang Phan
+ * @version  final Mar 29 2017
+ * @author Jason Martinez
  */
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class ContactManager {
+public class ContactManager implements Serializable {
 	private static boolean restart = true;
 	private static final int MAX_CONTACT = 100;	
 	private static ContactList contactList = new ContactList(MAX_CONTACT);
@@ -21,12 +27,19 @@ public class ContactManager {
 	}
 	
 	
-	/**
+	/**JM
 	 * reads the saved file into "contactList"
 	 * and display a message
 	 */
 	public static void read() {
-		//more code needed for reading file. Test.
+		try  {
+		    	  ObjectInputStream in = new ObjectInputStream(new FileInputStream("ContactList.ser"));
+		    	  contactList = (ContactList)in.readObject();
+		    	  in.close();    
+		      } catch(IOException ioe)  {
+		      } catch (ClassNotFoundException cnfe)  {
+		         System.out.println ("Error in casting to Array: " + cnfe);
+		      } 
 	}
 	
 	/**
@@ -63,6 +76,7 @@ public class ContactManager {
 					break;	
 				case "3":
 					searchContacts();
+					break;
 				case "4":
 					save();
 					restart = false; //terminates program
@@ -109,19 +123,24 @@ public class ContactManager {
 	 * searches contacts in "contactList" by lastName
 	 */
 	public static void searchContacts() {
-		//Use Case 3
-		//code needed for searching
-		Scanner console = new Scanner (System.in);
-		String lastName = console.nextLine();
-		contactList.searchContacts(lastName);
+		contactList.searchContacts();
 	}
 	
-	/**
-	 * saves "contactList" to disk and sets
+	/**JM
+	 * Saves "contactList" to disk and sets
 	 */
 	public static void save() {
-		//Use Case 4
-		//code needed for saving file
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(
+				    new FileOutputStream("ContactList.ser")
+				);
+				out.writeObject(contactList);
+				out.flush();
+				out.close();
+		} catch (IOException ioe)  {
+	         System.out.println ("Error writing objects to the file: "+ ioe.getMessage());
+	         
+	      }
 	}
 	
 }

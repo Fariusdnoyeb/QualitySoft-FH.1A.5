@@ -1,13 +1,14 @@
-
 /**
  * Definition for Class StreetAddres.
  * Each object of this class 
  * stores a contact address
  * 
- * @version 3 Mar 21 2017
- * @author Quang Phan
+ * @version  final Mar 29 2017
+ * @author Hitesh Govani
  */
-public class StreetAddress {
+import java.io.Serializable;
+
+public class StreetAddress implements Serializable{
 //data member:
 	private String house;
 	private String city;

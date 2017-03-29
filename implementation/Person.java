@@ -3,11 +3,12 @@
  * An object of this class stores
  * contact information for 1 individual
  * 
- * @version 3 Mar 21 2017
- * @author Quang Phan
+ * @version  final Mar 29 2017
+ * @author Hitesh Govani
  */
+import java.io.Serializable;
 
-public class Person implements Comparable<Person> {
+public class Person implements Comparable<Person>, Serializable {
 //Data Members
 	private String firstName;
 	private String lastName;
