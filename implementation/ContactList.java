@@ -78,7 +78,7 @@ public class ContactList implements Serializable {
 			System.out.println("Please enter a Contact's last name to search for: ");
 			String lastName = console.nextLine();
 			for (int counter = 0; counter < contactCounter; counter++) {
-			if (lastName.equals(contactList[counter].getLastName())) {
+			if (lastName.equalsIgnoreCase(contactList[counter].getLastName())) {
 				System.out.println(contactList[counter].toString());
 				numberOfContactsFound++;
 				}
