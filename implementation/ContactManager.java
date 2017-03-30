@@ -1,6 +1,6 @@
 /**
  * manages the contact list
- * @version  final Mar 29 2017
+ * @version final Mar 29 2017
  * @author Jason Martinez
  */
 
@@ -79,6 +79,7 @@ public class ContactManager implements Serializable {
 					break;
 				case "4":
 					save();
+					System.out.println("Goodbye!");
 					restart = false; //terminates program
 					break;
 				default: 
@@ -137,6 +138,7 @@ public class ContactManager implements Serializable {
 				out.writeObject(contactList);
 				out.flush();
 				out.close();
+				System.out.println("Contact list saved.");
 		} catch (IOException ioe)  {
 	         System.out.println ("Error writing objects to the file: "+ ioe.getMessage());
 	         
@@ -147,6 +149,228 @@ public class ContactManager implements Serializable {
 
 
 
-/*RUN
+/*RUN 1
+Greetings!
+0 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+1
+===============================
+Please press enter after each input. Input only 'c' to cancel.
+Last name: 
+Last name is required. No contact added!
+Greetings!
+0 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+1
+===============================
+Please press enter after each input. Input only 'c' to cancel.
+Last name: Smith
+First name: 
+First name is required. No contact added!
+Greetings!
+0 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+1
+===============================
+Please press enter after each input. Input only 'c' to cancel.
+Last name: Smith
+First name: John
+Address: 
+	House/Apartment: 
+	City: 
+	State: 
+	Zip code: 
+	Country: 
+Email address: john@com
+Invalid syntax. Please try again.
+Email address: johnsmithgmail.com
+Invalid syntax. Please try again.
+Email address: john.smith@gmail.com
+Phone number(XXX-XXX-XXXX): no phones
+Invalid syntax. Please try again.
+Phone number(XXX-XXX-XXXX): 309-111-21551
+Invalid syntax. Please try again.
+Phone number(XXX-XXX-XXXX): 
+Notes: c
+No contact added.
+Greetings!
+0 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+1
+===============================
+Please press enter after each input. Input only 'c' to cancel.
+Last name: Smith
+First name: John
+Address: 
+	House/Apartment: 123 Main St.
+	City: San Jose
+	State: CA
+	Zip code: 12345
+	Country: USA
+Email address: john.smith@gmail.com
+Phone number(XXX-XXX-XXXX): 012-345-6789
+Notes: Test Test Test
+New contact added!
+Greetings!
+1 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+1
+===============================
+Please press enter after each input. Input only 'c' to cancel.
+Last name: Smith
+First name: Jane
+Address: 
+	House/Apartment: 
+	City: 
+	State: 
+	Zip code: 
+	Country: 
+Email address: 
+Phone number(XXX-XXX-XXXX): 
+Notes: 
+New contact added!
+Greetings!
+2 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+1
+===============================
+Please press enter after each input. Input only 'c' to cancel.
+Last name: Doe
+First name: John
+Address: 
+	House/Apartment: 456 Main St.
+	City: Santa Clara
+	State: CA
+	Zip code: 12345
+	Country: USA
+Email address: john.doe@gmail.com
+Phone number(XXX-XXX-XXXX): 987-654-3210
+Notes: 
+New contact added!
+Greetings!
+3 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+2
+                                                     LIST OF CONTACTS                                                     
+--------------------------------------------------------------------------------------------------------------------------
+|#  |Last Name |First Name|Address                 |Email                    |Phone Number|Notes                         |
+|---|----------|----------|------------------------|-------------------------|------------|------------------------------|
+|1  |Doe       |John      |456 Main St.            |john.doe@gmail.com       |987-654-3210|                              |
+|   |          |          |Santa Clara             |                         |            |                              |
+|   |          |          |CA 12345                |                         |            |                              |
+|   |          |          |USA                     |                         |            |                              |
+|---|----------|----------|------------------------|-------------------------|------------|------------------------------|
+|2  |Smith     |Jane      |                        |                         |            |                              |
+|---|----------|----------|------------------------|-------------------------|------------|------------------------------|
+|3  |Smith     |John      |123 Main St.            |john.smith@gmail.com     |012-345-6789|Test Test Test                |
+|   |          |          |San Jose                |                         |            |                              |
+|   |          |          |CA 12345                |                         |            |                              |
+|   |          |          |USA                     |                         |            |                              |
+--------------------------------------------------------------------------------------------------------------------------
+Greetings!
+3 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+3
+Please enter a Contact's last name to search for: smith
+Smith, Jane
+    
+
+
+
+Smith, John
+123 Main St. San Jose CA 12345 USA
+john.smith@gmail.com
+012-345-6789
+Test Test Test
+Greetings!
+3 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+3
+Please enter a Contact's last name to search for: Martinez
+***No contacts found***
+Greetings!
+3 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+4
+Contact list saved.
+Goodbye!
+
+*/
+
+/*RUN 2
+Greetings!
+3 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+2
+                                                     LIST OF CONTACTS                                                     
+--------------------------------------------------------------------------------------------------------------------------
+|#  |Last Name |First Name|Address                 |Email                    |Phone Number|Notes                         |
+|---|----------|----------|------------------------|-------------------------|------------|------------------------------|
+|1  |Doe       |John      |456 Main St.            |john.doe@gmail.com       |987-654-3210|                              |
+|   |          |          |Santa Clara             |                         |            |                              |
+|   |          |          |CA 12345                |                         |            |                              |
+|   |          |          |USA                     |                         |            |                              |
+|---|----------|----------|------------------------|-------------------------|------------|------------------------------|
+|2  |Smith     |Jane      |                        |                         |            |                              |
+|---|----------|----------|------------------------|-------------------------|------------|------------------------------|
+|3  |Smith     |John      |123 Main St.            |john.smith@gmail.com     |012-345-6789|Test Test Test                |
+|   |          |          |San Jose                |                         |            |                              |
+|   |          |          |CA 12345                |                         |            |                              |
+|   |          |          |USA                     |                         |            |                              |
+--------------------------------------------------------------------------------------------------------------------------
+Greetings!
+3 contact(s) found.
+What would you like to do?
+[1] Add a contact
+[2] Print contacts
+[3] Search by last name
+[4] Quit
+4
+Contact list saved.
+Goodbye!
 
 */

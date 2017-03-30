@@ -3,15 +3,15 @@
  * Each object of this class stores a
  * contact list
  * 
- * @version  final Mar 29 2017
+ * @version final Mar 29 2017
  * @author TEAM 5
  */
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.io.Serializable;
 
 public class ContactList implements Serializable {
 //data members
@@ -59,8 +59,8 @@ public class ContactList implements Serializable {
 								+ "No more contact can be added");
 		return;
 		}
-		System.out.println("Please press enter after each input, or "
-				+ "input only 'c' to cancel.");
+		System.out.println("Please press enter after each input. "
+				+ "Input only 'c' to cancel.");
 		readContactInfo();	
 	}
 	
@@ -72,10 +72,12 @@ public class ContactList implements Serializable {
 	public void searchContacts() {
 		int numberOfContactsFound = 0;
 		if (contactCounter == 0) {
-			System.out.println("*** Contact List is empty, nothing to search for ***" + "\n");
+			System.out.println("*** Contact List is empty, "
+							+ "nothing to search for ***" + "\n");
 		} else {
 			Scanner console = new Scanner(System.in);
-			System.out.println("Please enter a Contact's last name to search for: ");
+			System.out.print("Please enter "
+							+ "a Contact's last name to search for: ");
 			String lastName = console.nextLine();
 			for (int counter = 0; counter < contactCounter; counter++) {
 			if (lastName.equalsIgnoreCase(contactList[counter].getLastName())) {

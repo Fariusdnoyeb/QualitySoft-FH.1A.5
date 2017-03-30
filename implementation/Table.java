@@ -1,20 +1,20 @@
 /**
  * Each object of this class contains 1 contact
- * information and the methods needed to print those
+ * and the methods needed to print all contact's
  * information into a table
  * 
- * @version  final Mar 29 2017
+ * @version final Mar 29 2017
  * @author Quang Phan
  */
 
 public class Table {
 	private static final int LAST_NAME_FIELD = 10,
-					  FIRST_NAME_FIELD = 10,
-					  ADDRESS_FIELD = 24,
-					  EMAIL_FIELD = 25,
-					  PHONE_FIELD = 12,
-					  NOTES_FIELD = 30,
-					  INDEX_FIELD = 3;
+							 FIRST_NAME_FIELD = 10,
+							 ADDRESS_FIELD = 24,
+							 EMAIL_FIELD = 25,
+							 PHONE_FIELD = 12,
+							 NOTES_FIELD = 30,
+							 INDEX_FIELD = 3;
 	private static final int LINE_LENGTH =
 			LAST_NAME_FIELD + FIRST_NAME_FIELD + ADDRESS_FIELD + 
 			EMAIL_FIELD + PHONE_FIELD + NOTES_FIELD + INDEX_FIELD + 8;
@@ -130,7 +130,6 @@ public class Table {
 	}
 	
 	/**
-	 * 
 	 * @param message : category message
 	 * @param field	  : field length of category
 	 * @return		  : string containing the category
@@ -184,6 +183,7 @@ public class Table {
 // Private Instance Methods
 //--------------------------
 	/**
+	 * takes a String and convert it to an array of String
 	 * @param stringToConvert : a string containing contact's information
 	 * @param field 		  : field length of contact's information
 	 * @return an array of String containing contact's information
@@ -330,7 +330,6 @@ public class Table {
 	}
 	
 	/**
-	 * 
 	 * @param arrayToPrint : array of String containing contact's information
 	 * @return a String represents this contact's information
 	 */

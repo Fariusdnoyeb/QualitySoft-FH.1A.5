@@ -3,7 +3,7 @@
  * Each object of this class 
  * stores a contact address
  * 
- * @version  final Mar 29 2017
+ * @version final Mar 29 2017
  * @author Hitesh Govani
  */
 import java.io.Serializable;
